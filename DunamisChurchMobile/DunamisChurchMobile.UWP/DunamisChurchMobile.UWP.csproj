@@ -108,6 +108,22 @@
     <None Include="DunamisChurchMobile.UWP_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="aboutIcon.png" />
+    <Content Include="audio.png" />
+    <Content Include="audioandvideo.png" />
+    <Content Include="bg.jpg" />
+    <Content Include="dunamistv.jpg" />
+    <Content Include="dunamisTVIcon.png" />
+    <Content Include="events.jpg" />
+    <Content Include="eventsIcon.png" />
+    <Content Include="homechurch.png" />
+    <Content Include="homeIcon.png" />
+    <Content Include="icon.png" />
+    <Content Include="menu.png" />
+    <Content Include="messagesIcon.png" />
+    <Content Include="offeringIcon.png" />
+    <Content Include="onlinegiving.png" />
+    <Content Include="prayer.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-100.png" />
     <Content Include="Assets\LockScreenLogo.scale-125.png" />
@@ -140,6 +156,9 @@
     <Content Include="Assets\Wide310x150Logo.scale-150.png" />
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
     <Content Include="Assets\Wide310x150Logo.scale-400.png" />
+    <Content Include="seedofdestinyIcon.png" />
+    <Content Include="testimony.jpg" />
+    <Content Include="twitterIcon.png" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">

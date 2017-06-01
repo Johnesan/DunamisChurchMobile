@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DunamisChurchMobile.Views.Papa">
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness" iOS="0, 20, 0, 0" />
+    </ContentPage.Padding>
+    <ContentPage.Content>
+        <StackLayout Spacing="20">
+            <Image VerticalOptions="StartAndExpand">
+            </Image>
+            <Frame>
+                <Label>About Dr. Paul Enechene</Label>
+                <Label>
+                </Label>
+            </Frame>
+            <Frame>
+                <Label Text="Social Media Controls">
+                </Label>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

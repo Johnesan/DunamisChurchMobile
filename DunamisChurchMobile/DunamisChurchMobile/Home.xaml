@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:DunamisChurchMobile"
+             x:Class="DunamisChurchMobile.Home"
+             BackgroundImage="bg.jpg">
+    <ContentPage.Padding>
+    </ContentPage.Padding>
+    <Grid Padding="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="110" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="20" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <StackLayout Orientation="Horizontal" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4">
+            <Image Opacity="0.9" Aspect="AspectFill" VerticalOptions="FillAndExpand" 
+			HorizontalOptions="FillAndExpand" Source="dunamistv.jpg">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding DunamisTvCommand}" />
+                </Image.GestureRecognizers>
+            </Image>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal" Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="3">
+            <Image Opacity="1" Aspect="AspectFill" VerticalOptions="FillAndExpand" 
+			HorizontalOptions="FillAndExpand" Source="testimony.jpg">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding TestimonyCommand}" />
+                </Image.GestureRecognizers>
+            </Image>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3">
+            <Image Opacity="1" Aspect="AspectFill" VerticalOptions="FillAndExpand" 
+				HorizontalOptions="FillAndExpand" Source="events.jpg">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding EventCommand}" />
+                </Image.GestureRecognizers>
+            </Image>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal" Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="4">
+            <Image Opacity="1" Aspect="AspectFill" VerticalOptions="FillAndExpand" 
+			HorizontalOptions="FillAndExpand" Source="audio.png">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding MessageLibraryCommand}" />
+                </Image.GestureRecognizers>
+            </Image>
+
+        </StackLayout>
+        <StackLayout Orientation="Horizontal" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3">
+            <Image Aspect="AspectFill" VerticalOptions="FillAndExpand" 
+			HorizontalOptions="FillAndExpand" Source="onlinegiving.png">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding OnlineGivingCommand}" />
+                </Image.GestureRecognizers>
+            </Image>
+        </StackLayout>
+        <StackLayout Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="4" Grid.RowSpan="2">
+            <ScrollView HorizontalOptions="Start">
+                <StackLayout>
+                    <Label FontAttributes="Bold" FontSize="18" Text="Seed Of Destiny" TextColor="White" VerticalOptions="Center" HorizontalOptions="Center" />
+                    <Label FontAttributes="Italic" FontSize="12" Text="Today: April 1st, 2017" TextColor="White" VerticalOptions="Start" HorizontalOptions="End" />
+                    <Label FontSize="12" TextColor="White" Text="Ok, then try to add another transparent view to the beginning of the stack and set it's option to start and expand, then remove horizontal option for image. This should do the trick. You may also try using Grid with */Auto sized columns for stuff like this. Everybody moves from simple layouts to grid eventually, especially now, after they added margin property." />
+                    <Button BackgroundColor="Transparent" TextColor="White" Text="Read More..">
+                    </Button>
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3">
+            <Image Aspect="AspectFill" VerticalOptions="FillAndExpand" 
+			HorizontalOptions="FillAndExpand" Source="prayer.png">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding PrayerCommand}" />
+                </Image.GestureRecognizers>
+            </Image>
+
+        </StackLayout>
+    </Grid>
+</ContentPage>

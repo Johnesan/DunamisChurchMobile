@@ -13,7 +13,8 @@ namespace DunamisChurchMobile
         {
             InitializeComponent();
 
-            MainPage = new DunamisChurchMobile.MainPage();
+            //MainPage = new DunamisChurchMobile.MainPage();
+            MainPage = new RootPage();
         }
 
         protected override void OnStart()

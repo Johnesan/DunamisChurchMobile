@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DunamisChurchMobile.RootPageMaster"
+             Title="Master">
+  <StackLayout>
+    <ListView x:Name="ListViewMenuItems"
+              SeparatorVisibility="None"
+              HasUnevenRows="true"
+              ItemsSource="{Binding MenuItems}">
+      <ListView.Header>
+        <!--<Grid BackgroundColor="#03A9F4">
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="10"/>
+          </Grid.ColumnDefinitions>
+          <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="10"/>
+          </Grid.RowDefinitions>
+          <Label
+              Grid.Column="1"
+              Grid.Row="2"
+              Text="Dunamis Gospel Center"
+              Style="{DynamicResource SubtitleStyle}"/>
+        </Grid>-->
+                <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="#6287c4" HeightRequest="180">
+                <Image Source="DunamisLogo.png" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+                </StackLayout>
+                <!--<Grid>
+                    <Image Source="DunamisLogo.png" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+                </Grid>-->
+            </ListView.Header>
+      <ListView.ItemTemplate>
+        <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.View>
+                        <StackLayout Orientation="Horizontal" Padding="20, 4, 10, 4" HorizontalOptions="FillAndExpand" >
+                            <!--<Frame  HorizontalOptions="FillAndExpand" Padding="3,5,3,5" HasShadow="true" BackgroundColor="#ECEFF1">-->
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="20"/>
+                                        <ColumnDefinition Width="10"/>
+                                        <ColumnDefinition Width="30"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Image Grid.Column="0" Source="{Binding Icon}"  />
+                                    <Label Grid.Column="2" Grid.ColumnSpan="2" VerticalOptions="FillAndExpand" VerticalTextAlignment="Center"  Text="{Binding Title}" FontSize="15" TextColor="Black"/>
+                                </Grid>
+                            <Image Source="angleBracketIcon" VerticalOptions="Center" HorizontalOptions="EndAndExpand"/>
+                            <!--</Frame>-->
+                        </StackLayout>
+                        </ViewCell.View>
+                    </ViewCell>
+                </DataTemplate>
+      </ListView.ItemTemplate>
+    </ListView>
+  </StackLayout>
+</ContentPage>

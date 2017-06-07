@@ -1,23 +1,64 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="DunamisChurchMobile.Views.Papa">
+             xmlns:forms="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.CarouselView"
+             x:Class="DunamisChurchMobile.Views.Papa"
+             Title="Dr. Paul Enenche">
     <ContentPage.Padding>
         <OnPlatform x:TypeArguments="Thickness" iOS="0, 20, 0, 0" />
     </ContentPage.Padding>
     <ContentPage.Content>
-        <StackLayout Spacing="20">
-            <Image VerticalOptions="StartAndExpand">
-            </Image>
-            <Frame>
-                <Label>About Dr. Paul Enechene</Label>
-                <Label>
-                </Label>
-            </Frame>
-            <Frame>
-                <Label Text="Social Media Controls">
-                </Label>
-            </Frame>
-        </StackLayout>
+        <ScrollView>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="250"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="60"/>
+            </Grid.RowDefinitions>
+            <StackLayout Grid.Row="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <forms:CarouselView  x:Name="ImageCarousel"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+                    <forms:CarouselView.ItemTemplate>
+                        <DataTemplate>
+                            <Image Aspect="AspectFill" Source="{Binding .}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+                        </DataTemplate>
+                    </forms:CarouselView.ItemTemplate>
+                </forms:CarouselView>
+            </StackLayout>
+
+            <StackLayout Grid.Row="1" VerticalOptions="StartAndExpand" Margin="10,2,10,0"  >
+                <ScrollView>
+                    <Label Font="17" TextColor="Black" FontAttributes="Italic" FontFamily="Arial" Text="Dr Pastor Paul Enenche is a trained Medical Doctor, called of God into full time ministry, with a heavy Apostolic and Prophetic mantle for the restoration of human lives and dignities.He is the Senior Pastor of Dunamis International Gospel Centre, with the headquarters situated beside the Old Federal Secretariat, Area 1, Abuja— the Federal Capital Territory of Nigeria. He is married to Dr Becky, a beautiful, intelligent, submissive, supportive and hardworking Medical Doctor, also called of God into full time ministry. And together, they have four blessed children."/>
+                </ScrollView>
+            </StackLayout>
+
+            <StackLayout Grid.Row="2" Padding="6"  Orientation="Horizontal" HorizontalOptions="FillAndExpand" HeightRequest="55" VerticalOptions="EndAndExpand" BackgroundColor="#727272">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Spacing="14">
+                    <Image Aspect="AspectFill" Source="facebookCircle.png" VerticalOptions="Center" HorizontalOptions="Center" >
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding facebookCommand}"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+
+                    <Image  Source="twitterCircle.png" VerticalOptions="Center">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding twitterCommand}"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+
+                    <Image Source="instagramCircle.png" VerticalOptions="Center">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding instagramCommand}"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+
+                    <Image Source="youtubeCircle.png" VerticalOptions="Center" HorizontalOptions="Center">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding youtubeCommand}"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                </StackLayout>
+            </StackLayout>
+        </Grid>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

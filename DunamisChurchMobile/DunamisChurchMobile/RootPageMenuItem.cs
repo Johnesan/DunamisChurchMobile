@@ -9,13 +9,15 @@ namespace DunamisChurchMobile
 
     public class RootPageMenuItem
     {
-        public RootPageMenuItem()
-        {
-            TargetType = typeof(RootPageDetail);
-        }
         public int Id { get; set; }
         public string Title { get; set; }
         public string Icon { get; set; }
         public Type TargetType { get; set; }
+
+        public RootPageMenuItem()
+        {
+            TargetType = typeof(Home);
+        }
+      
     }
 }

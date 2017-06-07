@@ -19,11 +19,11 @@ namespace DunamisChurchMobile.ViewModels
         public YoutubeViewModel(string ChannelID)
         {
             channelID = ChannelID;
-              apiUrlForChannel = "https://www.googleapis.com/youtube/v3/search?part=id&maxResults=49&channelId="
-            + channelID
-            //+ "Your_ChannelId"
-            + "&key="
-            + ApiKey;
+            apiUrlForChannel = "https://www.googleapis.com/youtube/v3/search?part=id&maxResults=49&channelId="
+          + channelID
+          //+ "Your_ChannelId"
+          + "&key="
+          + ApiKey;
             InitDataAsync();
 
         }
@@ -43,6 +43,17 @@ namespace DunamisChurchMobile.ViewModels
             + "&key="
             + ApiKey;
 
+        private bool _isBusy;
+        public bool IsBusy
+        {
+            get { return _isBusy; }
+            set
+            {
+                _isBusy = value;
+                OnPropertyChanged();
+            }
+        }
+
         private List<YoutubeItem> _youtubeItems;
 
         public List<YoutubeItem> YoutubeItems
@@ -59,8 +70,9 @@ namespace DunamisChurchMobile.ViewModels
 
         public async Task InitDataAsync()
         {
+            IsBusy = true;
             var videoIds = await GetVideoIdsFromChannelAsync();
-          //var videoIds = await GetVideoIdsFromPlaylistAsync();
+            IsBusy = false;
         }
 
         private async Task<List<string>> GetVideoIdsFromChannelAsync()
@@ -147,7 +159,7 @@ namespace DunamisChurchMobile.ViewModels
             catch (Exception exception)
             {
                 return youtubeItems;
-             
+
             }
         }
 

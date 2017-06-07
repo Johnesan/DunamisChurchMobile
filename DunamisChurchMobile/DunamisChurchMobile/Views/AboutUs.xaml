@@ -1,5 +1,30 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="DunamisChurchMobile.Views.AboutUs">
+             x:Class="DunamisChurchMobile.Views.AboutUs"
+            BackgroundImage="aboutBackground.png">
+    <ScrollView>
+        <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackLayout Margin="0" Grid.Row="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <Image Source="aboutPageLogo.png" HeightRequest="100" Margin="0,5,0,0" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand"/>
+        </StackLayout>
+
+        <StackLayout Grid.Row="1" VerticalOptions="StartAndExpand" Margin="10,2,10,0">
+            <ScrollView>
+                <Label FontAttributes="Italic" Font="18" TextColor="White" Text="Dunamis International Gospel Centre (DIGC), is a powerfully anointed church, headquartered at Abuja, Nigeria, with Dr Paul and Dr Becky Enenche, as the Senior Pastors. It is a power-packed arena where God's Presence, Principles and Power are at work for the salvation, healing and restoration of human destinies and dignities. Dunamis International Gospel Centre (DIGC), is also a revival and end time fire distribution centre, where ministers from around the globe gather to experience the deep, palpable and feelable Presence of God; connect with God's heartbeat for the present, receive current instructions for the end time assignment and get imparted to take charge of their territories for God."/>
+            </ScrollView>
+        </StackLayout>
+
+        <StackLayout Grid.Row="2" Spacing="0" VerticalOptions="End">
+            <Button Text="About Dr. Paul Enenche" HorizontalOptions="FillAndExpand" Clicked="PapaButtonClicked" Margin="8,0,8,0"/>
+            <Button Text="About Dr. Becky Enenche" HorizontalOptions="FillAndExpand"  Clicked="MamaButtonClicked" Margin="8,0,8,0"/>
+        </StackLayout>
+    </Grid>
+    </ScrollView>
+
 </ContentPage>

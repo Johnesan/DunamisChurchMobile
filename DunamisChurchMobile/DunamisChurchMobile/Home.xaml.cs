@@ -10,7 +10,7 @@ namespace DunamisChurchMobile
             //Icon = "menu.png";
             Title = "Dunamis Gospel Center";
             BindingContext = new HomeViewModel(this.Navigation);
-
+            //NavigationPage.SetHasNavigationBar(this, false);
         }
     }
 }

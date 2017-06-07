@@ -8,6 +8,5 @@
     <TabbedPage.Children>
         <pages:MessageLibraryDrPaul/>
         <pages:MessageLibraryDunamisTV/>
-
     </TabbedPage.Children>
 </TabbedPage>

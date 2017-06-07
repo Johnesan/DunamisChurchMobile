@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DunamisChurchMobile.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,17 @@ namespace DunamisChurchMobile.Views
         public Mama()
         {
             InitializeComponent();
+
+            var ImagesUrl = new List<string>
+            {
+                "mama1.jpg",
+                "mama2.jpg",
+                "mama3.jpg",
+                "mama4.jpg"
+            };
+
+            ImageCarousel.ItemsSource = ImagesUrl;
+            BindingContext = new MamaViewModel(this.Navigation);
         }
     }
 }

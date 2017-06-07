@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DunamisChurchMobile.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,7 @@ namespace DunamisChurchMobile.Views
         public SocialMedia()
         {
             InitializeComponent();
+            BindingContext = new SocialMediaViewModel(this.Navigation);
         }
     }
 }

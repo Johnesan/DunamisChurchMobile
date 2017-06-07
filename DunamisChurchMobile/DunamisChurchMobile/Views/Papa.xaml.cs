@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DunamisChurchMobile.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,17 @@ namespace DunamisChurchMobile.Views
         public Papa()
         {
             InitializeComponent();
+
+            var ImagesUrl = new List<string>
+            {
+                "papa1.jpg",
+                "papa2.jpg",
+                "papa3.jpg",
+                "papa4.jpg"
+            };
+
+            ImageCarousel.ItemsSource = ImagesUrl;
+            BindingContext = new PapaViewModel(this.Navigation);
         }
     }
 }

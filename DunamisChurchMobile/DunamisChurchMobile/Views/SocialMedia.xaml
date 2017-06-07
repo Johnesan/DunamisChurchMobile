@@ -1,5 +1,35 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="DunamisChurchMobile.Views.SocialMedia">
+             x:Class="DunamisChurchMobile.Views.SocialMedia"
+             BackgroundImage="SocialMediaBackgroundd.png">
+    
+    <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+        <Image Source="facebookCircle.png" HorizontalOptions="Center" VerticalOptions="Center">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding facebookCommand}"/>
+            </Image.GestureRecognizers>
+        </Image>
+        <StackLayout Orientation="Horizontal">
+            <Image Source="twitterCircle.png" VerticalOptions="Center">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding twitterCommand}"/>
+                </Image.GestureRecognizers>
+            </Image>
+
+            <Image Source="logoCircle.png" VerticalOptions="Center" HorizontalOptions="Center"/>
+
+            <Image Source="instagramCircle.png" VerticalOptions="Center">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding instagramCommand}"/>
+                </Image.GestureRecognizers>
+            </Image>
+            
+        </StackLayout>
+        <Image Source="youtubeCircle.png" VerticalOptions="Center" HorizontalOptions="Center">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding youtubeCommand}"/>
+            </Image.GestureRecognizers>
+        </Image>
+    </StackLayout>
 </ContentPage>

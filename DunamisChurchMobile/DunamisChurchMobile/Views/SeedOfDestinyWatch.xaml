@@ -5,6 +5,11 @@
              Title="Watch">
     <StackLayout Padding = "5,10"
                BackgroundColor="White">
+        <ActivityIndicator IsEnabled="{Binding IsBusy}"
+                           IsRunning="{Binding IsBusy}"
+                           IsVisible="{Binding IsBusy}"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center"/>
         <ListView ItemsSource = "{Binding YoutubeItems}"
               HasUnevenRows="True"
                   Margin="0,3,0,5"

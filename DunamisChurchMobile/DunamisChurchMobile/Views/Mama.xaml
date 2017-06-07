@@ -1,5 +1,64 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="DunamisChurchMobile.Views.Mama">
+              xmlns:forms="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.CarouselView"
+             x:Class="DunamisChurchMobile.Views.Mama"
+             Title="Dr. Mrs Becky Enenche">
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness" iOS="0, 20, 0, 0" />
+    </ContentPage.Padding>
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="250"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="60"/>
+                </Grid.RowDefinitions>
+                <StackLayout Grid.Row="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <forms:CarouselView  x:Name="ImageCarousel"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+                        <forms:CarouselView.ItemTemplate>
+                            <DataTemplate>
+                                <Image Aspect="AspectFill" Source="{Binding .}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+                            </DataTemplate>
+                        </forms:CarouselView.ItemTemplate>
+                    </forms:CarouselView>
+                </StackLayout>
+
+                <StackLayout Grid.Row="1" VerticalOptions="StartAndExpand" Margin="10,2,10,0"  >
+                    <ScrollView>
+                        <Label Font="17" TextColor="Black" FontAttributes="Italic" FontFamily="Arial" Text="Dr Becky Enenche, is the wife of Dr Paul Enenche and they are the Senior Pastors of Dunamis International Gospel Centre, worldwide, with headquarters at Area 1, Garki, Abuja, Nigeria. Like her husband, she is a Medical Doctor turned full time preacher and teacher of the Gospel with the mandate and mantle to set the women of our generation free and to come against the onslaught of the devil in homes! She is a seasoned and passionate teacher and preacher of the Word with a heavy prophetic mantle for accurate Word of Knowledge and Instant Action Unction that produces instant Divine intervention."/>
+                    </ScrollView>
+                </StackLayout>
+
+                <StackLayout Grid.Row="2" Padding="6"  Orientation="Horizontal" HorizontalOptions="FillAndExpand" HeightRequest="55" VerticalOptions="EndAndExpand" BackgroundColor="#727272">
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Spacing="14">
+                        <Image Aspect="AspectFill" Source="facebookCircle.png" VerticalOptions="Center" HorizontalOptions="Center" >
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding facebookCommand}"/>
+                            </Image.GestureRecognizers>
+                        </Image>
+
+                        <Image  Source="twitterCircle.png" VerticalOptions="Center">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding twitterCommand}"/>
+                            </Image.GestureRecognizers>
+                        </Image>
+
+                        <Image Source="instagramCircle.png" VerticalOptions="Center">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding instagramCommand}"/>
+                            </Image.GestureRecognizers>
+                        </Image>
+
+                        <Image Source="youtubeCircle.png" VerticalOptions="Center" HorizontalOptions="Center">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding youtubeCommand}"/>
+                            </Image.GestureRecognizers>
+                        </Image>
+                    </StackLayout>
+                </StackLayout>
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
 </ContentPage>

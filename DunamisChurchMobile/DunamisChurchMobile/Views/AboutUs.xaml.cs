@@ -16,5 +16,15 @@ namespace DunamisChurchMobile.Views
         {
             InitializeComponent();
         }
+
+        private async void PapaButtonClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Papa());
+        }
+
+        private async void MamaButtonClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Mama());
+        }
     }
 }

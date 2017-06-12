@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:forms="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.CarouselView"
              x:Class="DunamisChurchMobile.Views.Papa"
-             Title="Dr. Paul Enenche">
+             Title="Dr. Paul Enenche"
+             BackgroundColor="#E8EAF6">
     <ContentPage.Padding>
         <OnPlatform x:TypeArguments="Thickness" iOS="0, 20, 0, 0" />
     </ContentPage.Padding>
@@ -31,7 +32,7 @@
                 </ScrollView>
             </StackLayout>
 
-            <StackLayout Grid.Row="2" Padding="6"  Orientation="Horizontal" HorizontalOptions="FillAndExpand" HeightRequest="55" VerticalOptions="EndAndExpand" BackgroundColor="#727272">
+                <StackLayout Grid.Row="2" Padding="6"  Orientation="Horizontal" HorizontalOptions="FillAndExpand" HeightRequest="50" VerticalOptions="EndAndExpand" BackgroundColor="#5C6BC0">
                 <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Spacing="14">
                     <Image Aspect="AspectFill" Source="facebookCircle.png" VerticalOptions="Center" HorizontalOptions="Center" >
                         <Image.GestureRecognizers>
@@ -57,6 +58,7 @@
                         </Image.GestureRecognizers>
                     </Image>
                 </StackLayout>
+                    
             </StackLayout>
         </Grid>
         </ScrollView>

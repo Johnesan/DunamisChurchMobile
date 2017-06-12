@@ -18,6 +18,7 @@ namespace DunamisChurchMobile.Views
         {
             InitializeComponent();
             BindingContext = new YoutubeViewModel("UCrDg-KgwTtv88H32I4KEZcw");
+            //listView.SeparatorVisibility = Xamarin.Forms.SeparatorVisibility.None;
         }
 
         private async void OnSingleVideoSelected(object sender, SelectedItemChangedEventArgs e)

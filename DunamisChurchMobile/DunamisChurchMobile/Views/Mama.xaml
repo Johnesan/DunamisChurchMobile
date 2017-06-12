@@ -31,7 +31,7 @@
                     </ScrollView>
                 </StackLayout>
 
-                <StackLayout Grid.Row="2" Padding="6"  Orientation="Horizontal" HorizontalOptions="FillAndExpand" HeightRequest="55" VerticalOptions="EndAndExpand" BackgroundColor="#727272">
+                <StackLayout Grid.Row="2" Padding="6"  Orientation="Horizontal" HorizontalOptions="FillAndExpand" HeightRequest="50" VerticalOptions="EndAndExpand" BackgroundColor="Transparent">
                     <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Spacing="14">
                         <Image Aspect="AspectFill" Source="facebookCircle.png" VerticalOptions="Center" HorizontalOptions="Center" >
                             <Image.GestureRecognizers>

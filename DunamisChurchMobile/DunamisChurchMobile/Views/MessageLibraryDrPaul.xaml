@@ -1,16 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="DunamisChurchMobile.Views.MessageLibraryDrPaul"
-           
+             x:Class="DunamisChurchMobile.Views.MessageLibraryDrPaul" 
              Title="Dr Paul">
-    <!--<ContentPage.BindingContext>
-        <ViewModels:YoutubeViewModel/>
-    </ContentPage.BindingContext>-->
     <StackLayout Padding = "5,10"
                BackgroundColor="White">
-        <ActivityIndicator IsEnabled="{Binding IsBusy}" IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" VerticalOptions="Center" HorizontalOptions="Center"/>
-        <ListView ItemsSource = "{Binding YoutubeItems}"
+        <ActivityIndicator IsEnabled="{Binding IsBusy}"
+                           IsRunning="{Binding IsBusy}"
+                           IsVisible="{Binding IsBusy}"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center"/>
+        <ListView IsPullToRefreshEnabled="True"   x:Name="listView"
+                  
+            ItemsSource = "{Binding YoutubeItems}"
               HasUnevenRows="True"
                   Margin="0,3,0,5"
                   ItemSelected="OnSingleVideoSelected">
@@ -18,29 +20,15 @@
                 <DataTemplate>
                     <ViewCell>
                         <ViewCell.View>
-                            <Frame BackgroundColor="#efefef" Margin="8,4,8,8" HasShadow="True">
-                                <StackLayout>
-                                    <Label Text = "{Binding Title}" TextColor="Black" FontSize="17" VerticalTextAlignment="Center" Margin="0,0,0,3"/>
-                                  
-                                    <Image Source = "{Binding HighThumbnailUrl}" HeightRequest="200" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"/>
-                                
-                                    <Label Text="{Binding Description}" FontSize="Small" />
-                                    <Label Text="{Binding  PublishedAt, StringFormat='{0:dd/MM/yyyy}'}" TextColor="#0D47A1" HorizontalOptions="End" HorizontalTextAlignment="End"/>
+                            <Frame Margin="7" Padding="7" HasShadow="True" BackgroundColor="#e8e9ef">
+                                <StackLayout Orientation="Horizontal" Padding="3">
+                                    <Image  Source = "{Binding HighThumbnailUrl}" Margin="7,0,0,0" VerticalOptions="Fill" WidthRequest="140" />
+                                    <StackLayout Orientation="Vertical" VerticalOptions="Center" Padding="10,5,3,5">
+                                        <Label Text = "{Binding Title}" TextColor="Black" FontSize="15" VerticalTextAlignment="Center"/>
+                                        <Label Text="{Binding  PublishedAt, StringFormat='{0:dd/MM/yyyy}'}" TextColor="#0D47A1" FontSize="11"/>
+                                    </StackLayout>
                                 </StackLayout>
                             </Frame>
-                            <!--<Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="*"/>
-                                </Grid.RowDefinitions>
-                            <StackLayout Grid.Row="0">
-                                <Frame HasShadow="True">
-                                <Label Text = "{Binding Title}" TextColor="Black" FontSize="20" VerticalTextAlignment="Center"/>
-                                <Image Source = "{Binding HighThumbnailUrl}" Margin="7,0,0,0" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
-                                <Label Text="{Binding Description}" FontSize="Micro"/>
-                                <Label Text="{Binding  PublishedAt, StringFormat='{0:dd/MM/yyyy}'}"/>
-                                </Frame>
-                            </StackLayout>
-                            </Grid>-->
                         </ViewCell.View>
                     </ViewCell>
                 </DataTemplate>

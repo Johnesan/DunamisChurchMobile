@@ -173,7 +173,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DunamisChurchMobile\DunamisChurchMobile.csproj">
-      <Project>{c5271279-16ee-4813-9301-daeeb85dd557}</Project>
+      <Project>{733633E1-803F-46B7-8CF6-E7900A4133F1}</Project>
       <Name>DunamisChurchMobile</Name>
     </ProjectReference>
   </ItemGroup>

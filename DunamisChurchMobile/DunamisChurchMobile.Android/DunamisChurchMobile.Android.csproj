@@ -147,6 +147,7 @@
     <Compile Include="MainApplication.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SplashActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -165,12 +166,14 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Tabbar.axml" />
-    <AndroidResource Include="Resources\layout\Toolbar.axml" />
+    <AndroidResource Include="Resources\layout\Toolbar.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
     <AndroidResource Include="Resources\values\styles.xml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DunamisChurchMobile\DunamisChurchMobile.csproj">
-      <Project>{c5271279-16ee-4813-9301-daeeb85dd557}</Project>
+      <Project>{733633E1-803F-46B7-8CF6-E7900A4133F1}</Project>
       <Name>DunamisChurchMobile</Name>
     </ProjectReference>
   </ItemGroup>
@@ -211,7 +214,7 @@
     <AndroidResource Include="Resources\drawable\bg.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\dunamistv.jpg" />
+    <AndroidResource Include="Resources\drawable\DunamisTV.jpg" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\events.jpg" />
@@ -235,7 +238,9 @@
     <AndroidResource Include="Resources\drawable\splash.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\splash_screen.xml" />
+    <AndroidResource Include="Resources\drawable\splash_screen.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\testimony.jpg" />

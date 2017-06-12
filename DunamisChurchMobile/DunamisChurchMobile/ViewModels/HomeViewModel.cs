@@ -17,6 +17,7 @@ namespace DunamisChurchMobile
             OnlineGivingCommand = new Command(OnlineGivingPage);
             TestimonyCommand = new Command(TestimonyPage);
             DunamisTvCommand = new Command(DunamisTvPage);
+            SeedOfDestinyCommand = new Command(SeedOfDestinyPage);
 
             Navigation = _Navigation;
 
@@ -28,6 +29,7 @@ namespace DunamisChurchMobile
         public ICommand OnlineGivingCommand { private set; get; }
         public ICommand TestimonyCommand { private set; get; }
         public ICommand DunamisTvCommand { private set; get; }
+        public ICommand SeedOfDestinyCommand { get; set; }
 
 
 
@@ -67,6 +69,10 @@ namespace DunamisChurchMobile
         {
             Navigation.PushAsync(new MessageLibrary());
 
+        }
+        public void SeedOfDestinyPage()
+        {
+            Navigation.PushAsync(new SeedOfDestiny());
         }
     }
 }

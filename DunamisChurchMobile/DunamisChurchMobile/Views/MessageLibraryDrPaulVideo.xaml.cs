@@ -27,5 +27,22 @@ namespace DunamisChurchMobile.Views
             htmlSource.Html = @"<html><body><iframe width=""100%"" height=""100%"" src = ""https://www.youtube.com/embed/" + videoId  + " frameborder = \"0\" allowfullscreen></iframe ></body></html>";
             youtubeVideo.Source = htmlSource;
         }
+              
+        protected async override void OnAppearing()
+        {
+            base.OnAppearing();
+            await progressBar.ProgressTo(0.9, 900, Easing.SpringIn);
+
+        }
+        private void webView_Navigating(object sender, WebNavigatingEventArgs e)
+        {
+            progressBar.IsVisible = true;
+        }
+
+        private void webView_Navigated(object sender, WebNavigatedEventArgs e)
+        {
+            progressBar.IsVisible = false;
+
+        }
     }
 }

@@ -8,40 +8,33 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using DunamisChurchMobile.Models;
+using System.Collections.ObjectModel;
 
 namespace DunamisChurchMobile.ViewModels
 {
     public class YoutubeViewModel : INotifyPropertyChanged
     {
-        public static string channelID= "UCK_Jbyeifa1W5A4Z8uB708w";
+        #region Fields and Properties
+        private static string NextPageToken;
+        private static string channelID = "UCK_Jbyeifa1W5A4Z8uB708w";
 
-
-        public YoutubeViewModel(string ChannelID)
-        {
-            channelID = ChannelID;
-            apiUrlForChannel = "https://www.googleapis.com/youtube/v3/search?part=id&maxResults=49&channelId="
-          + channelID
-          //+ "Your_ChannelId"
-          + "&key="
-          + ApiKey;
-            InitDataAsync();
-
-        }
-
-        private const string ApiKey = "AIzaSyADgBl2wj41IAAF19EgiYv3TeOMUfrQ_VA";
-
-        private string apiUrlForChannel = "https://www.googleapis.com/youtube/v3/search?part=id&maxResults=49&channelId="
+        private string apiUrlForChannel = "https://www.googleapis.com/youtube/v3/search?part=id&order=date&maxResults=40&channelId="
             + channelID
             //+ "Your_ChannelId"
-            + "&key="
-            + ApiKey;
+            + "&key=AIzaSyADgBl2wj41IAAF19EgiYv3TeOMUfrQ_VA";
+
+        private string apiUrlForChannelNextPage = "https://www.googleapis.com/youtube/v3/search?part=id&order=date&pageToken="
+            + NextPageToken
+            + "&maxResults=40&channelId="
+            + channelID
+            + "&key=AIzaSyADgBl2wj41IAAF19EgiYv3TeOMUfrQ_VA";
+
 
         private string apiUrlForVideosDetails = "https://www.googleapis.com/youtube/v3/videos?part=snippet,statistics&id="
             + "{0}"
             //+ "0ce22qhacyo,j8GU5hG-34I,_0aQJHoI1e8"
             //+ "Your_Videos_Id"
-            + "&key="
-            + ApiKey;
+            + "&key=AIzaSyADgBl2wj41IAAF19EgiYv3TeOMUfrQ_VA";
 
         private bool _isBusy;
         public bool IsBusy
@@ -54,9 +47,9 @@ namespace DunamisChurchMobile.ViewModels
             }
         }
 
-        private List<YoutubeItem> _youtubeItems;
+        private ObservableCollection<YoutubeItem> _youtubeItems;
 
-        public List<YoutubeItem> YoutubeItems
+        public ObservableCollection<YoutubeItem> YoutubeItems
         {
             get { return _youtubeItems; }
             set
@@ -66,13 +59,35 @@ namespace DunamisChurchMobile.ViewModels
             }
         }
 
+#endregion
 
+        public YoutubeViewModel(string ChannelID)
+        {
+            channelID = ChannelID;
+            apiUrlForChannel = "https://www.googleapis.com/youtube/v3/search?part=id&order=date&maxResults=40" +
+                "&channelId="
+          + channelID
+          + "&key=AIzaSyADgBl2wj41IAAF19EgiYv3TeOMUfrQ_VA";
 
+            InitDataAsync();
+
+        }
+        
         public async Task InitDataAsync()
         {
             IsBusy = true;
             var videoIds = await GetVideoIdsFromChannelAsync();
             IsBusy = false;
+
+            while(!string.IsNullOrEmpty(NextPageToken))
+            {
+               apiUrlForChannelNextPage = "https://www.googleapis.com/youtube/v3/search?part=id&order=date&pageToken="
+            + NextPageToken
+            + "&maxResults=40&channelId="
+            + channelID
+            + "&key=AIzaSyADgBl2wj41IAAF19EgiYv3TeOMUfrQ_VA";
+        await GetNextPageVideoIdsFromChannelAsync();
+            }
         }
 
         private async Task<List<string>> GetVideoIdsFromChannelAsync()
@@ -80,6 +95,36 @@ namespace DunamisChurchMobile.ViewModels
             var httpClient = new HttpClient();
 
             var json = await httpClient.GetStringAsync(apiUrlForChannel);
+
+            var videoIds = new List<string>();
+
+            try
+            {
+                JObject response = JsonConvert.DeserializeObject<dynamic>(json);
+                var items = response.Value<JArray>("items");
+
+                foreach (var item in items)
+                {
+                    videoIds.Add(item.Value<JObject>("id")?.Value<string>("videoId"));
+                }
+
+                YoutubeItems = await GetVideosDetailsAsync(videoIds);
+
+                NextPageToken = response.Value<string>("nextPageToken");
+
+            }
+            catch (Exception exception)
+            {
+            }
+
+            return videoIds;
+        }
+        
+        private async Task<List<string>> GetNextPageVideoIdsFromChannelAsync()
+        {
+            var httpClient = new HttpClient();
+
+            var json = await httpClient.GetStringAsync(apiUrlForChannelNextPage);
 
             var videoIds = new List<string>();
 
@@ -94,7 +139,8 @@ namespace DunamisChurchMobile.ViewModels
                     videoIds.Add(item.Value<JObject>("id")?.Value<string>("videoId"));
                 }
 
-                YoutubeItems = await GetVideosDetailsAsync(videoIds);
+                await GetVideosDetailsAsync(videoIds);
+                NextPageToken = response.Value<string>("nextPageToken");
             }
             catch (Exception exception)
             {
@@ -103,9 +149,8 @@ namespace DunamisChurchMobile.ViewModels
             return videoIds;
         }
 
-        private async Task<List<YoutubeItem>> GetVideosDetailsAsync(List<string> videoIds)
+        private async Task<ObservableCollection<YoutubeItem>> GetVideosDetailsAsync(List<string> videoIds)
         {
-
             var videoIdsString = "";
             foreach (var s in videoIds)
             {
@@ -116,7 +161,7 @@ namespace DunamisChurchMobile.ViewModels
 
             var json = await httpClient.GetStringAsync(string.Format(apiUrlForVideosDetails, videoIdsString));
 
-            var youtubeItems = new List<YoutubeItem>();
+            var youtubeItems = new ObservableCollection<YoutubeItem>();
 
             try
             {
@@ -151,7 +196,8 @@ namespace DunamisChurchMobile.ViewModels
                         //Tags = (from tag in snippet?.Value<JArray>("tags") select tag.ToString())?.ToList()
                     };
 
-                    youtubeItems.Add(youtubeItem);
+                    YoutubeItems.Add(youtubeItem);
+
                 }
 
                 return youtubeItems;
@@ -162,9 +208,9 @@ namespace DunamisChurchMobile.ViewModels
 
             }
         }
-
+        
         public event PropertyChangedEventHandler PropertyChanged;
-
+        
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             if (PropertyChanged != null)

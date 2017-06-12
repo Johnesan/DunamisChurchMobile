@@ -21,8 +21,7 @@ namespace DunamisChurchMobile.Views
             {
                 "mama1.jpg",
                 "mama2.jpg",
-                "mama3.jpg",
-                "mama4.jpg"
+                "mama3.jpg"
             };
 
             ImageCarousel.ItemsSource = ImagesUrl;

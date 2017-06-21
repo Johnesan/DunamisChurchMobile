@@ -15,7 +15,6 @@ namespace DunamisChurchMobile.Views
     {
         public MessageLibraryDunamisTVVideo(string videoId)
         {
-
             InitializeComponent();
             BindingContext = new YoutubeItem();
 
@@ -27,6 +26,23 @@ namespace DunamisChurchMobile.Views
             //the htmlSource.Html would look something like<html><body><iframe width="100%" src="https://www.youtube.com/embed/ow241ADZxE" frameborder="0" allowfullscreen></iframe></body></html>
             htmlSource.Html = @"<html><body><iframe width=""100%"" height=""100%"" src = ""https://www.youtube.com/embed/" + videoId + " frameborder = \"0\" allowfullscreen></iframe ></body></html>";
             youtubeVideo.Source = htmlSource;
+        }
+
+        protected async override void OnAppearing()
+        {
+            base.OnAppearing();
+            await progressBar.ProgressTo(1.0, 1000, Easing.SpringIn);
+
+        }
+        private void webView_Navigating(object sender, WebNavigatingEventArgs e)
+        {
+            progressBar.IsVisible = true;
+        }
+
+        private void webView_Navigated(object sender, WebNavigatedEventArgs e)
+        {
+            progressBar.IsVisible = false;
+
         }
     }
 }

@@ -1,5 +1,64 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="DunamisChurchMobile.Views.HomeChurch">
+             x:Class="DunamisChurchMobile.Views.HomeChurch"
+             Title="Home Church"
+             BackgroundColor="#E8EAF6">
+    <ScrollView>
+        <StackLayout>
+            <Image Source="homeChurchPage.png" HorizontalOptions="Center" HeightRequest="170" Margin="0,10,0,0"/>
+            <Label Text="Search for the closest Dunamis Home Centre near your Area" TextColor="Black" FontSize="17" Margin="5,0,5,0" HorizontalTextAlignment="Center"/>
+            <Entry x:Name="entry" Placeholder="Enter Location" Margin="10,0,10,0"/>
+            <Button TextColor="White" Text="Search" Margin="10,0,10,0" BackgroundColor="#0dd839" Clicked="SearchHomeChurches"/>
+            <Label Text="OR" FontAttributes="Bold" Font="20" TextColor="Black" HorizontalTextAlignment="Center"/>
+            <Button BackgroundColor="#ff8e26" TextColor="Black"  Text="View All Home Churches" Clicked="ViewAllHomeChurches" Margin="10,0,10,0"/>
+
+            <!--<ActivityIndicator IsEnabled="{Binding IsBusy}"
+                           IsRunning="{Binding IsBusy}"
+                           IsVisible="{Binding IsBusy}"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center"/>
+
+            <Grid VerticalOptions="FillAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <ListView ItemsSource="{Binding HomeChurches}"
+                  HasUnevenRows="True">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ViewCell.View>
+                                    <Frame HasShadow="True">
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="*"/>
+                                                <RowDefinition Height="*"/>
+                                                <RowDefinition Height="*"/>
+                                                <RowDefinition Height="*"/>
+                                                <RowDefinition Height="*"/>
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="60"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Label Text="{Binding name}" Font="20" TextColor="Black" FontAttributes="Bold"  Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
+                                            <Label Text="Address: " Grid.Row="1" Grid.Column="0" Margin="0"/>
+                                            <Label Text="{Binding address}" Grid.Row="1" Grid.Column="1" Margin="0"/>
+                                            <Label Text="House Owner: " Grid.Row="2" Grid.Column="0" Margin="0"/>
+                                            <Label Text="{Binding houseOwner}" Grid.Row="2" Grid.Column="1" Margin="0"/>
+                                            <Label Text="Phone: " Grid.Row="3" Grid.Column="0" Margin="0"/>
+                                            <Label Text="{Binding phone}" Grid.Row="3" Grid.Column="1" Margin="0"/>
+                                            <Label Text="Code: " Grid.Row="4" Grid.Column="0" Margin="0"/>
+                                            <Label Text="{Binding code}" Grid.Row="4" Grid.Column="1" Margin="0"/>
+                                        </Grid>
+                                    </Frame>
+                                </ViewCell.View>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>-->
+        </StackLayout>
+    </ScrollView>
 </ContentPage>

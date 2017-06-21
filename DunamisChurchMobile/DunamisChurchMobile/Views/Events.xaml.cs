@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DunamisChurchMobile.Models;
+using DunamisChurchMobile.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +17,23 @@ namespace DunamisChurchMobile.Views
         public Events()
         {
             InitializeComponent();
+            BindingContext = new EventsViewModel();
+        }
+
+        private async void OnSingleEventSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            if (e.SelectedItem == null)
+            {
+                return;
+            }
+
+            var SingleEvent = e.SelectedItem as Event;
+
+
+            await Navigation.PushAsync(new EventSingle()
+            {
+                BindingContext = SingleEvent
+            });
         }
     }
 }

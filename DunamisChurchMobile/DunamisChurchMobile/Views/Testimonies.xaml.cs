@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DunamisChurchMobile.Models;
+using DunamisChurchMobile.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +17,12 @@ namespace DunamisChurchMobile.Views
         public Testimonies()
         {
             InitializeComponent();
+            BindingContext = new TestimoniesViewModel();
+        }
+              
+        private async void AddNewTestimonyClicked(object sender, EventArgs e)
+        {
+           await Navigation.PushAsync(new TestimoniesAddNew());
         }
     }
 }

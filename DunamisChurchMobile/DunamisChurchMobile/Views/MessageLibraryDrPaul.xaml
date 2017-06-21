@@ -2,27 +2,27 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DunamisChurchMobile.Views.MessageLibraryDrPaul" 
-             Title="Dr Paul">
-    <StackLayout Padding = "5,10"
-               BackgroundColor="White">
+             Title="Dr Paul"
+             BackgroundColor="#e8e9ef">
+    <StackLayout Padding = "5,10">
         <ActivityIndicator IsEnabled="{Binding IsBusy}"
                            IsRunning="{Binding IsBusy}"
                            IsVisible="{Binding IsBusy}"
                            VerticalOptions="Center"
                            HorizontalOptions="Center"/>
-        <ListView IsPullToRefreshEnabled="True"   x:Name="listView"
-                  
+        <ListView x:Name="listView"                  
             ItemsSource = "{Binding YoutubeItems}"
               HasUnevenRows="True"
+                  SeparatorVisibility="None"
                   Margin="0,3,0,5"
                   ItemSelected="OnSingleVideoSelected">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
                         <ViewCell.View>
-                            <Frame Margin="7" Padding="7" HasShadow="True" BackgroundColor="#e8e9ef">
+                            <Frame Margin="7" Padding="7" HasShadow="True" BackgroundColor="White">
                                 <StackLayout Orientation="Horizontal" Padding="3">
-                                    <Image  Source = "{Binding HighThumbnailUrl}" Margin="7,0,0,0" VerticalOptions="Fill" WidthRequest="140" />
+                                    <Image  Source = "{Binding HighThumbnailUrl}" Margin="7,0,0,0" VerticalOptions="Fill" WidthRequest="120" />
                                     <StackLayout Orientation="Vertical" VerticalOptions="Center" Padding="10,5,3,5">
                                         <Label Text = "{Binding Title}" TextColor="Black" FontSize="15" VerticalTextAlignment="Center"/>
                                         <Label Text="{Binding  PublishedAt, StringFormat='{0:dd/MM/yyyy}'}" TextColor="#0D47A1" FontSize="11"/>

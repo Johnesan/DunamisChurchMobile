@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DunamisChurchMobile.Views.SeedOfDestinyWatch"
-             Title="Watch">
+             Title="Watch"
+             BackgroundColor="#e8e9ef">
     <StackLayout Padding = "5,10"
                BackgroundColor="White">
         <ActivityIndicator IsEnabled="{Binding IsBusy}"
@@ -14,12 +15,13 @@
             ItemsSource = "{Binding YoutubeItems}"
               HasUnevenRows="True"
                   Margin="0,3,0,5"
+                  SeparatorVisibility="None"
                   ItemSelected="OnSingleVideoSelected">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
                         <ViewCell.View>
-                            <Frame Margin="7" Padding="7" HasShadow="True" BackgroundColor="#e8e9ef">
+                            <Frame Margin="7" Padding="7" HasShadow="True" BackgroundColor="White">
                                 <StackLayout Orientation="Horizontal" Padding="3">
                                     <Image  Source = "{Binding HighThumbnailUrl}" Margin="7,0,0,0" VerticalOptions="Fill" WidthRequest="140" />
                                     <StackLayout Orientation="Vertical" VerticalOptions="Center" Padding="10,5,3,5">

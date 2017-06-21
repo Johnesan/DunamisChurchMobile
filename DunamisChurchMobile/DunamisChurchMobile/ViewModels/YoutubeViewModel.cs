@@ -18,7 +18,7 @@ namespace DunamisChurchMobile.ViewModels
         private static string NextPageToken;
         private static string channelID = "UCK_Jbyeifa1W5A4Z8uB708w";
 
-        private string apiUrlForChannel = "https://www.googleapis.com/youtube/v3/search?part=id&order=date&maxResults=40&channelId="
+        private string apiUrlForChannel = "https://www.googleapis.com/youtube/v3/search?part=id&order=date&maxResults=30&channelId="
             + channelID
             //+ "Your_ChannelId"
             + "&key=AIzaSyADgBl2wj41IAAF19EgiYv3TeOMUfrQ_VA";
@@ -64,7 +64,7 @@ namespace DunamisChurchMobile.ViewModels
         public YoutubeViewModel(string ChannelID)
         {
             channelID = ChannelID;
-            apiUrlForChannel = "https://www.googleapis.com/youtube/v3/search?part=id&order=date&maxResults=40" +
+            apiUrlForChannel = "https://www.googleapis.com/youtube/v3/search?part=id&order=date&maxResults=30" +
                 "&channelId="
           + channelID
           + "&key=AIzaSyADgBl2wj41IAAF19EgiYv3TeOMUfrQ_VA";
@@ -83,7 +83,7 @@ namespace DunamisChurchMobile.ViewModels
             {
                apiUrlForChannelNextPage = "https://www.googleapis.com/youtube/v3/search?part=id&order=date&pageToken="
             + NextPageToken
-            + "&maxResults=40&channelId="
+            + "&maxResults=30&channelId="
             + channelID
             + "&key=AIzaSyADgBl2wj41IAAF19EgiYv3TeOMUfrQ_VA";
         await GetNextPageVideoIdsFromChannelAsync();

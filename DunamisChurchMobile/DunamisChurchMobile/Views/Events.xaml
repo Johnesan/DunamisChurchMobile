@@ -1,5 +1,54 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="DunamisChurchMobile.Views.Events">
+             x:Class="DunamisChurchMobile.Views.Events"
+             Title="Events">
+    <StackLayout>
+        <ActivityIndicator IsEnabled="{Binding IsBusy}"
+                           IsRunning="{Binding IsBusy}"
+                           IsVisible="{Binding IsBusy}"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center"/>
+        <Grid VerticalOptions="FillAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <ListView ItemsSource="{Binding Events}"
+                  HasUnevenRows="True"
+                  ItemSelected="OnSingleEventSelected"
+                  VerticalOptions="FillAndExpand">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.View>
+                                <Frame HasShadow="True">
+                                    <!--<StackLayout Padding="9" Orientation="Horizontal">
+                                    <Image Source="calendar.png" Margin="5,0,10,0" HeightRequest="25" HorizontalOptions="Start" VerticalOptions="Center"/>
+                                    <StackLayout Orientation="Vertical">
+                                        <Label Text="{Binding name}" FontSize="16" VerticalOptions="Center" HorizontalOptions="Start"/>
+                                        <Label Text="{Binding description}" LineBreakMode="TailTruncation" FontSize="12" VerticalOptions="Center" HorizontalOptions="Start"/>
+                                    </StackLayout>
+                                    <Label  WidthRequest="250" Text="{Binding startDate, StringFormat='{0:dd/MM/yyyy}'}" FontSize="12" HorizontalOptions="EndAndExpand" VerticalOptions="Center"/>
+                                </StackLayout>-->
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="57"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Image  Source="calendar.png" Grid.Column="0" Margin="0,0,10,0"  />
+                                        <StackLayout Grid.Column="1" Orientation="Vertical" HorizontalOptions="FillAndExpand">
+                                            <Label Text="{Binding name}" FontSize="18" VerticalOptions="Center" HorizontalOptions="FillAndExpand"/>
+                                            <Label Text="{Binding description}" LineBreakMode="TailTruncation" FontSize="12" FontAttributes="Italic" VerticalOptions="Center" HorizontalOptions="FillAndExpand"/>
+                                        </StackLayout>
+                                        <Label Grid.Column="2" Text="{Binding startDate, StringFormat='{0:dd/MM/yyyy}'}" FontSize="12" HorizontalOptions="End" VerticalOptions="Center" TextColor="Blue"/>
+                                    </Grid>
+                                </Frame>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+    </StackLayout>
 </ContentPage>

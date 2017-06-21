@@ -36,7 +36,7 @@
             <Image Aspect="AspectFill" VerticalOptions="FillAndExpand" 
 			HorizontalOptions="FillAndExpand" Source="homechurch.jpg">
                 <Image.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding TestimonyCommand}" />
+                    <TapGestureRecognizer Command="{Binding HomeChurchCommand}" />
                 </Image.GestureRecognizers>
             </Image>
         </StackLayout>
@@ -78,9 +78,9 @@
         </StackLayout>
         <StackLayout Orientation="Horizontal" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3">
             <Image Aspect="AspectFill" VerticalOptions="FillAndExpand" 
-			HorizontalOptions="FillAndExpand" Source="prayer.png">
+			HorizontalOptions="FillAndExpand" Source="testimonies.png">
                 <Image.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding PrayerCommand}" />
+                    <TapGestureRecognizer Command="{Binding TestimoniesCommand}" />
                 </Image.GestureRecognizers>
             </Image>
 

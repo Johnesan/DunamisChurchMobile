@@ -38,6 +38,10 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Models\Event.cs" />
+    <Compile Include="Models\HomeChurch.cs" />
+    <Compile Include="Models\SeedOfDestinyRead.cs" />
+    <Compile Include="Models\Testimony.cs" />
     <Compile Include="Models\YoutubeItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RootPage.xaml.cs">
@@ -47,12 +51,17 @@
       <DependentUpon>RootPageMaster.xaml</DependentUpon>
     </Compile>
     <Compile Include="RootPageMenuItem.cs" />
+    <Compile Include="Services\ChurchPlusApis.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
+    <Compile Include="ViewModels\EventsViewModel.cs" />
+    <Compile Include="ViewModels\HomeChurchViewModel.cs" />
     <Compile Include="ViewModels\HomeViewModel.cs" />
     <Compile Include="ViewModels\MamaViewModel.cs" />
     <Compile Include="ViewModels\MessageLibraryViewModel.cs" />
     <Compile Include="ViewModels\PapaViewModel.cs" />
+    <Compile Include="ViewModels\SeedOfDestinyReadViewModel.cs" />
     <Compile Include="ViewModels\SocialMediaViewModel.cs" />
+    <Compile Include="ViewModels\TestimoniesViewModel.cs" />
     <Compile Include="ViewModels\YoutubeViewModel.cs" />
     <Compile Include="Views\AboutUs.xaml.cs">
       <DependentUpon>AboutUs.xaml</DependentUpon>
@@ -66,11 +75,14 @@
     <Compile Include="Home.xaml.cs">
       <DependentUpon>Home.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\EventSingle.xaml.cs">
+      <DependentUpon>EventSingle.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\HomeChurch.xaml.cs">
       <DependentUpon>HomeChurch.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\HomeChurchDetails.xaml.cs">
-      <DependentUpon>HomeChurchDetails.xaml</DependentUpon>
+    <Compile Include="Views\HomeChurchAll.xaml.cs">
+      <DependentUpon>HomeChurchAll.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Mama.xaml.cs">
       <DependentUpon>Mama.xaml</DependentUpon>
@@ -99,9 +111,6 @@
     <Compile Include="Views\Papa.xaml.cs">
       <DependentUpon>Papa.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Prayers.xaml.cs">
-      <DependentUpon>Prayers.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\SeedOfDestiny.xaml.cs">
       <DependentUpon>SeedOfDestiny.xaml</DependentUpon>
     </Compile>
@@ -123,10 +132,12 @@
     <Compile Include="Views\Testimonies.xaml.cs">
       <DependentUpon>Testimonies.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\TestimoniesAddNew.xaml.cs">
+      <DependentUpon>TestimoniesAddNew.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Videos.xaml.cs">
       <DependentUpon>Videos.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\YoutubeViewPage.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="App.xaml">
@@ -170,7 +181,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Repository\" />
+    <EmbeddedResource Include="Views\EventSingle.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Home.xaml">
@@ -203,12 +217,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\HomeChurchDetails.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Views\Mama.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
@@ -228,12 +236,6 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\Papa.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Views\Prayers.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -327,6 +329,18 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\SeedOfDestinyWatchVideo.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\HomeChurchAll.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\TestimoniesAddNew.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

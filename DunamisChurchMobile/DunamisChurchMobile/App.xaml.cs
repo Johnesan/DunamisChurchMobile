@@ -9,6 +9,11 @@ namespace DunamisChurchMobile
 {
     public partial class App : Application
     {
+        public string TenantID
+        { get
+
+            { return ""; }
+        }
         public App()
         {
             InitializeComponent();

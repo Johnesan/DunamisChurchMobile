@@ -31,7 +31,7 @@ namespace DunamisChurchMobile.Views
         protected async override void OnAppearing()
         {
             base.OnAppearing();
-            await progressBar.ProgressTo(0.9, 900, Easing.SpringIn);
+            await progressBar.ProgressTo(1.0, 1000, Easing.SpringIn);
 
         }
         private void webView_Navigating(object sender, WebNavigatingEventArgs e)

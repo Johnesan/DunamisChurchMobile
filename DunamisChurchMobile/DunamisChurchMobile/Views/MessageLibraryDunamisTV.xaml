@@ -3,9 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:ViewModels="clr-namespace:XamarinForms.ViewModels"
              x:Class="DunamisChurchMobile.Views.MessageLibraryDunamisTV"
-             Title="Dunamis TV">
-    <StackLayout Padding = "5,10"
-               BackgroundColor="White">
+             Title="Dunamis TV"
+             BackgroundColor="#e8e9ef">
+    <StackLayout Padding = "5,10">
         <ActivityIndicator IsEnabled="{Binding IsBusy}"
                            IsRunning="{Binding IsBusy}"
                            IsVisible="{Binding IsBusy}"
@@ -14,13 +14,14 @@
         <ListView x:Name="listView"
             ItemsSource = "{Binding YoutubeItems}"
               HasUnevenRows="True"
+                  SeparatorVisibility="None"
                   Margin="0,3,0,5"
                   ItemSelected="OnSingleVideoSelected">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
                         <ViewCell.View>
-                            <Frame Margin="7" Padding="7" HasShadow="True" BackgroundColor="#e8e9ef">
+                            <Frame Margin="7" Padding="7" HasShadow="True" BackgroundColor="White">
                                 <StackLayout Orientation="Horizontal" Padding="3">
                                     <Image  Source = "{Binding HighThumbnailUrl}" Margin="7,0,0,0" VerticalOptions="Fill" WidthRequest="140" />
                                     <StackLayout Orientation="Vertical" VerticalOptions="Center" Padding="10,5,3,5">

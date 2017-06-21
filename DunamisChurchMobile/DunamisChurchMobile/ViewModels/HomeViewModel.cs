@@ -11,11 +11,11 @@ namespace DunamisChurchMobile
         public HomeViewModel(INavigation _Navigation)
         {
 
-            PrayerCommand = new Command(PrayerPage);
+            TestimoniesCommand = new Command(TestimoniesPage);
             MessageLibraryCommand = new Command(MessageLibraryPage);
             EventCommand = new Command(EventPage);
             OnlineGivingCommand = new Command(OnlineGivingPage);
-            TestimonyCommand = new Command(TestimonyPage);
+            HomeChurchCommand = new Command(HomeChurchPage);
             DunamisTvCommand = new Command(DunamisTvPage);
             SeedOfDestinyCommand = new Command(SeedOfDestinyPage);
 
@@ -23,11 +23,11 @@ namespace DunamisChurchMobile
 
         }
 
-        public ICommand PrayerCommand { private set; get; }
+        public ICommand TestimoniesCommand { private set; get; }
         public ICommand MessageLibraryCommand { private set; get; }
         public ICommand EventCommand { private set; get; }
         public ICommand OnlineGivingCommand { private set; get; }
-        public ICommand TestimonyCommand { private set; get; }
+        public ICommand HomeChurchCommand { private set; get; }
         public ICommand DunamisTvCommand { private set; get; }
         public ICommand SeedOfDestinyCommand { get; set; }
 
@@ -39,9 +39,9 @@ namespace DunamisChurchMobile
 
         }
 
-        public void PrayerPage()
+        public void TestimoniesPage()
         {
-            Navigation.PushAsync(new Prayers());
+            Navigation.PushAsync(new Testimonies());
 
         }
 
@@ -51,9 +51,9 @@ namespace DunamisChurchMobile
 
         }
 
-        public void TestimonyPage()
+        public void HomeChurchPage()
         {
-            Navigation.PushAsync(new Testimonies());
+            Navigation.PushAsync(new HomeChurch());
 
         }
 

@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DunamisChurchMobile.Views.EventSingle"
+             Title="{Binding name}"
+             BackgroundColor="#E8EAF6">
+    <ScrollView>
+    <Frame HasShadow="True" Padding="9" Margin="9">
+        <StackLayout  HorizontalOptions="Center">
+            <StackLayout Orientation="Horizontal">
+                <Image Source="calendarEventSingle.png" HeightRequest="85"/>
+                <Label Text="{Binding name}" FontSize="Large" FontAttributes="Bold" TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="End" />
+                
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Start Date :" Margin="0,0,5,0" Font="19" TextColor="Black"/>
+                    <Label Text="{Binding startDate, StringFormat='{0:dd/MM/yyyy}'}" Font="19" TextColor="Blue"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Time :" Margin="0,0,5,0" Font="19" TextColor="Black" />
+                <Label Text="{Binding eventTime, StringFormat='{0:HH:mm}'}" Font="19" TextColor="Blue"/>
+            </StackLayout>
+            <Label Text="{Binding description}" FontAttributes="Italic" Font="18" TextColor="Black"/>
+        </StackLayout>
+    </Frame>
+    </ScrollView>
+</ContentPage>

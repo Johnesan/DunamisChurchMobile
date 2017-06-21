@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DunamisChurchMobile.Views.HomeChurchAll"
+             Title="View Home Churches"
+             BackgroundColor="#E8EAF6">
+    <StackLayout>
+        <ActivityIndicator IsEnabled="{Binding IsBusy}"
+                           IsRunning="{Binding IsBusy}"
+                           IsVisible="{Binding IsBusy}"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center"/>
+
+        <ListView x:Name="AllHomeChurcheslist"
+                  ItemsSource="{Binding HomeChurches}"
+                  HasUnevenRows="True"
+                  SeparatorVisibility="None">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.View>
+                            <Frame HasShadow="True" Margin="9">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="60"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label Text="{Binding name}" Font="20" TextColor="Black" FontAttributes="Bold"  Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
+                                    <Label Text="Address: " Grid.Row="1" Grid.Column="0" TextColor="Black" FontAttributes="Bold" Margin="0"/>
+                                    <Label Text="{Binding address}" Grid.Row="1" Grid.Column="1" FontAttributes="Italic" TextColor="Green" Margin="0"/>
+                                    <Label Text="House Owner: " Grid.Row="2" Grid.Column="0" TextColor="Black" FontAttributes="Bold" Margin="0"/>
+                                    <Label Text="{Binding houseOwner}" Grid.Row="2" Grid.Column="1" FontAttributes="Italic" TextColor="Green" Margin="0"/>
+                                    <Label Text="Phone: " Grid.Row="3" Grid.Column="0" TextColor="Black" FontAttributes="Bold" Margin="0"/>
+                                    <Label Text="{Binding phone}" Grid.Row="3" Grid.Column="1" FontAttributes="Italic" TextColor="Green" Margin="0"/>
+                                    <Label Text="Code: " Grid.Row="4" Grid.Column="0" TextColor="Black" FontAttributes="Bold" Margin="0"/>
+                                    <Label Text="{Binding code}" Grid.Row="4" Grid.Column="1" FontAttributes="Italic" TextColor="Green" Margin="0"/>
+                                </Grid>
+                            </Frame>
+                        </ViewCell.View>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>

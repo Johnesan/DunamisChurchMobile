@@ -34,7 +34,6 @@ namespace DunamisChurchMobile.Views
             {
                 BindingContext = youtubeItem
             });
-
         }
 
     }

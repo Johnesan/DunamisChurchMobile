@@ -1,5 +1,7 @@
-﻿using System;
+﻿using DunamisChurchMobile.ViewModels;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +17,8 @@ namespace DunamisChurchMobile.Views
         public SeedOfDestinyRead()
         {
             InitializeComponent();
+            BindingContext = new SeedOfDestinyReadViewModel();
+            var seedOfDestinies = BindingContext as ObservableCollection<SeedOfDestinyRead>;            
         }
     }
 }

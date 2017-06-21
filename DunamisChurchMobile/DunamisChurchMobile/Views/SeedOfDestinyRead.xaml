@@ -3,4 +3,30 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DunamisChurchMobile.Views.SeedOfDestinyRead"
              Title="Read">
+    <StackLayout>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <ListView ItemsSource="{Binding SeedOfDestinies}"
+                      HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.View>
+                                <StackLayout Padding="9" Orientation="Horizontal">
+                                    <Image Source="SeedOfDestinyReadIcon.png" Margin="2,0,5,0" HeightRequest="35" HorizontalOptions="Start" VerticalOptions="Center"/>
+                                    <StackLayout Orientation="Vertical">
+                                        <Label Text="{Binding Title}" FontSize="19" VerticalOptions="Center" HorizontalOptions="Start"/>
+                                        <Label Text="{Binding Scripture}" LineBreakMode="TailTruncation" FontSize="12" VerticalOptions="Center" HorizontalOptions="Start"/>
+                                    </StackLayout>
+                                    <Label  WidthRequest="250" Text="{Binding Date, StringFormat='{0:dd/MM/yyyy}'}" TextColor="Blue" FontSize="12" HorizontalOptions="EndAndExpand" VerticalOptions="Center"/>
+                                </StackLayout>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+    </StackLayout>
 </ContentPage>

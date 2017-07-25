@@ -1,5 +1,6 @@
 ﻿using DunamisChurchMobile.Models;
 using DunamisChurchMobile.Services;
+using Plugin.Connectivity;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
@@ -39,8 +40,16 @@ namespace DunamisChurchMobile.ViewModels
         public async Task InitDataAsync()
         {
             IsBusy = true;
+            Testimonies = new ObservableCollection<Testimony>(App.database.GetAllTestimonies());
+            if (!CrossConnectivity.Current.IsConnected)
+            {
+                IsBusy = false;
+                return;
+            }
             ChurchPlusApis service = new ChurchPlusApis();
-            Testimonies = new ObservableCollection<Testimony>(await service.GetAllTestimonies());
+            var UpdatedTestimonies = await service.GetAllTestimonies();
+            App.database.AddUpdatedTestimonies(UpdatedTestimonies);
+            Testimonies = new ObservableCollection<Testimony>(App.database.GetAllTestimonies());
             IsBusy = false;
         }
 

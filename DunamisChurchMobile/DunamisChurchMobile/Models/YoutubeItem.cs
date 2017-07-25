@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SQLite;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -33,12 +34,16 @@ namespace DunamisChurchMobile.Models
 
         public int? LikeCount { get; set; }
 
+        [Ignore]
         public int? DislikeCount { get; set; }
 
+        [Ignore]
         public int? FavoriteCount { get; set; }
 
+        [Ignore]
         public int? CommentCount { get; set; }
 
+        [Ignore]
         public List<string> Tags { get; set; }
     }
 }

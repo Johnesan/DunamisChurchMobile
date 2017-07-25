@@ -1,5 +1,6 @@
 ﻿using DunamisChurchMobile.Models;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,7 +22,15 @@ namespace DunamisChurchMobile.Services
         public static string PostTestimonyUrl = "http://dunamisapi.azurewebsites.net/api/Testimonies/PostTestimony";
         public static string GetAllHomeChurchesUrl = "http://dunamisapi.azurewebsites.net/api/HouseFellowship/GetHouseFellowships";
         public static string SearchHomeChurchUrl = "http://dunamisapi.azurewebsites.net/api/HouseFellowship/SearchHouseFellowships?name=";
+        public static string GetSeedOfDestinyUrl = "http://dunamisgospel.org/mobile-sod/read.php";
         #endregion
+
+        public static string Base64Decode(string base64EncodedData)
+        {
+            var base64EncodedBytes = System.Convert.FromBase64String(base64EncodedData);
+            return System.Text.Encoding.UTF8.GetString(base64EncodedBytes, 0, base64EncodedBytes.Length);
+        }
+
         public async Task<List<Event>> GetAllEvents()
         {
             var httpClient = new HttpClient();
@@ -31,7 +40,6 @@ namespace DunamisChurchMobile.Services
             var json = await content.ReadAsStringAsync();
             var events = JsonConvert.DeserializeObject<List<Event>>(json);
             return events;
-
         }
 
         public async Task<Event> GetSingleEvent()
@@ -95,6 +103,50 @@ namespace DunamisChurchMobile.Services
             var json = await content.ReadAsStringAsync();
             var homeChurches = JsonConvert.DeserializeObject<List<HomeChurch>>(json);
             return homeChurches;
+        }
+
+        public async Task<List<SeedOfDestiny>> GetSeedOfDestinies()
+        {
+            var request = new HttpRequestMessage();
+            request.RequestUri = new Uri(GetSeedOfDestinyUrl);
+            request.Method = HttpMethod.Post;
+
+            //var content = new FormUrlEncodedContent(new[] { new KeyValuePair<string, string>("nscteq-fin", "nsc") });
+            Dictionary<string, string> parameters = new Dictionary<string, string>();
+            parameters.Add("nscteq-fin", "nsc");       
+            var content = new FormUrlEncodedContent(parameters);
+            request.Content = content;
+
+            var FormattedSeedOfDestinies = new List<SeedOfDestiny>();
+            var httpClient = new HttpClient();
+            var response = await httpClient.SendAsync(request);
+            HttpContent ResponseContent = response.Content;
+            var json = await ResponseContent.ReadAsStringAsync();
+
+            try
+            {
+                JObject theResponse = JsonConvert.DeserializeObject<dynamic>(json);
+                var seedOfDestinies = theResponse.Value<JArray>("rd");
+
+                foreach (var seedOfDestiny in seedOfDestinies)
+                {
+                    var FormattedSeedOfDestiny = new SeedOfDestiny
+                    {
+                        date = seedOfDestiny.Value<DateTime>("date"),
+                        created = seedOfDestiny.Value<DateTime>("created"),
+                        title = Base64Decode(seedOfDestiny.Value<string>("title")),
+                        msg = Base64Decode(seedOfDestiny.Value<string>("msg"))
+                    };
+                    FormattedSeedOfDestinies.Add(FormattedSeedOfDestiny);
+                }
+            }
+            catch (Exception exception)
+            {
+                return FormattedSeedOfDestinies;
+
+            }
+
+            return FormattedSeedOfDestinies;
         }
     }
 }

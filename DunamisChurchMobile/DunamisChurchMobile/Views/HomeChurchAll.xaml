@@ -10,6 +10,7 @@
                            IsVisible="{Binding IsBusy}"
                            VerticalOptions="Center"
                            HorizontalOptions="Center"/>
+        <Label Font="20" HorizontalOptions="Center" VerticalOptions="Center" HorizontalTextAlignment="Center" Text="No Home Centre matches your search! Search for another Location." IsEnabled="{Binding NothingFound}" IsVisible="{Binding NothingFound}"/>
 
         <ListView x:Name="AllHomeChurcheslist"
                   ItemsSource="{Binding HomeChurches}"
@@ -36,10 +37,14 @@
                                     <Label Text="{Binding name}" Font="20" TextColor="Black" FontAttributes="Bold"  Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
                                     <Label Text="Address: " Grid.Row="1" Grid.Column="0" TextColor="Black" FontAttributes="Bold" Margin="0"/>
                                     <Label Text="{Binding address}" Grid.Row="1" Grid.Column="1" FontAttributes="Italic" TextColor="Green" Margin="0"/>
-                                    <Label Text="House Owner: " Grid.Row="2" Grid.Column="0" TextColor="Black" FontAttributes="Bold" Margin="0"/>
-                                    <Label Text="{Binding houseOwner}" Grid.Row="2" Grid.Column="1" FontAttributes="Italic" TextColor="Green" Margin="0"/>
+                                    <Label Text="Leader: " Grid.Row="2" Grid.Column="0" TextColor="Black" FontAttributes="Bold" Margin="0"/>
+                                    <Label Text="{Binding leader}" Grid.Row="2" Grid.Column="1" FontAttributes="Italic" TextColor="Green" Margin="0"/>
                                     <Label Text="Phone: " Grid.Row="3" Grid.Column="0" TextColor="Black" FontAttributes="Bold" Margin="0"/>
-                                    <Label Text="{Binding phone}" Grid.Row="3" Grid.Column="1" FontAttributes="Italic" TextColor="Green" Margin="0"/>
+                                    <Label Text="{Binding phone}" Grid.Row="3" Grid.Column="1" FontAttributes="Italic" TextColor="Green" Margin="0">
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding PhoneCommand}" />
+                                        </Label.GestureRecognizers>
+                                    </Label>
                                     <Label Text="Code: " Grid.Row="4" Grid.Column="0" TextColor="Black" FontAttributes="Bold" Margin="0"/>
                                     <Label Text="{Binding code}" Grid.Row="4" Grid.Column="1" FontAttributes="Italic" TextColor="Green" Margin="0"/>
                                 </Grid>

@@ -2,17 +2,18 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 	x:Class="DunamisChurchMobile.Views.DunamisTV"
-             Title="Dunamis Tv"
-             BackgroundColor="Black">
+             Title="Dunamis Tv">
     <ContentPage.Padding>
         <OnPlatform 
 			x:TypeArguments="Thickness" 
 		iOS="0, 20, 0, 0" />
     </ContentPage.Padding>
     <StackLayout>
-        <WebView Source="http://www.lifestream.tv/players/smp/embed.php?c=dunamis2471&amp;plat=live&amp;liveID=dunamis247&amp;alt=false&amp;ppv=&amp;db=dunamisuser&amp;user=guest&amp;status=1&amp;callID=dunamis247" 
-				HorizontalOptions="FillAndExpand" 
-				VerticalOptions="FillAndExpand">
-        </WebView>
+        <ProgressBar x:Name="progressBar" Progress="0.2" HorizontalOptions="FillAndExpand" VerticalOptions="Start" IsVisible="True" Margin="0,0,0,0"/>
+        <WebView x:Name="webView"
+                 HorizontalOptions="FillAndExpand"
+                 VerticalOptions="FillAndExpand" 
+                 Navigating="webView_Navigating"
+                 Navigated="webView_Navigated"/>
     </StackLayout>
 </ContentPage>

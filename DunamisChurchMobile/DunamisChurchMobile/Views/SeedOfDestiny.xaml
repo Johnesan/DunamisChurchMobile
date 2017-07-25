@@ -6,8 +6,8 @@
             Title="Seed Of Destiny">
   
     <TabbedPage.Children>
-        <local:SeedOfDestinyWatch/>
         <local:SeedOfDestinyRead/>
+        <local:SeedOfDestinyWatch/>
     </TabbedPage.Children>
 
 </TabbedPage>

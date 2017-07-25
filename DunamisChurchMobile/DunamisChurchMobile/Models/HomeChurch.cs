@@ -14,7 +14,7 @@ namespace DunamisChurchMobile.Models
         public string code { get; set; }
         //public string districtID { get; set; }
         //public string tenantID { get; set; }
-        public string houseOwner { get; set; }
+        public string leader { get; set; }
         public string district { get; set; }
         public string phone { get; set; }
         //public string peopleInCenter { get; set; }

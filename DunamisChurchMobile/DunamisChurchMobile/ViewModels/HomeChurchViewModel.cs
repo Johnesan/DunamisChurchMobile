@@ -26,6 +26,16 @@ namespace DunamisChurchMobile.ViewModels
                 OnPropertyChanged();
             }
         }
+        private bool _nothingFound;
+        public bool NothingFound
+        {
+            get { return _nothingFound; }
+            set
+            {
+                _nothingFound = value;
+                OnPropertyChanged();
+            }
+        }
         private ObservableCollection<HomeChurch> _homeChurches;
         public ObservableCollection<HomeChurch> HomeChurches
         {
@@ -54,11 +64,17 @@ namespace DunamisChurchMobile.ViewModels
         }
         public async void InitSearchAsync(string name)
         {
+            NothingFound = false;
             IsBusy = true;
             ChurchPlusApis service = new ChurchPlusApis();
             HomeChurches = new ObservableCollection<HomeChurch>(await service.SearchHomeChurches(name));
             //HomeChurches = new ObservableCollection<HomeChurch>(await service.GetAllHomeChurches());
+            
             IsBusy = false;
+            if (HomeChurches.Count == 0)
+            {
+                NothingFound = true;
+            }
         }
 
      public async void InitAllAsync()

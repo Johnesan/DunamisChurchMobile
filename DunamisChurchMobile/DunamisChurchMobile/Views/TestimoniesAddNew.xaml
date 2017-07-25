@@ -2,16 +2,25 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DunamisChurchMobile.Views.TestimoniesAddNew"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
              Title="Add New Testimony">
     <ScrollView>
         <StackLayout Padding="20,30,20,0">
-            <Label Text="Your Full Name:" Font="19" FontAttributes="Bold" TextColor="Black" Margin="0"/>
+            <Label Text="Your Full Name:" Font="19" FontAttributes="Bold" Margin="0"/>
             <Entry Text="{Binding testifiersName}" Margin="0,0,0,0"/>
-            <Label Text="Testimony Title:" Font="19" TextColor="Black"  FontAttributes="Bold" Margin="0"/>
+            <Label Text="Testimony Title:" Font="19" FontAttributes="Bold" Margin="0"/>
             <Entry Text="{Binding title}" Margin="0,0,0,0"/>
-            <Label Text="Date:" Font="19"  FontAttributes="Bold" TextColor="Black" Margin="0"/>
-            <DatePicker Date="{Binding date}" Margin="0,0,0,0"/>
-            <Label Text="Details:" Font="19"  FontAttributes="Bold" TextColor="Black" Margin="0"/>
+            <Label Text="Date:" Font="19"  FontAttributes="Bold" Margin="0"/>
+            <DatePicker Date="{Binding date}" Margin="0,0,0,0">
+                <DatePicker.MinimumDate>
+                    <sys:DateTime x:FactoryMethod="Parse">
+                        <x:Arguments>
+                            <x:String>Jan 1 2000</x:String>
+                        </x:Arguments>
+                    </sys:DateTime>
+                </DatePicker.MinimumDate>
+            </DatePicker>
+            <Label Text="Details:" Font="19"  FontAttributes="Bold" Margin="0"/>
             <Editor Text="{Binding details}" Margin="0,0,0,0"/>
 
             <Button Text="Send" BackgroundColor="#0dd839" TextColor="White" Clicked="OnSendTestimonyClicked"/>

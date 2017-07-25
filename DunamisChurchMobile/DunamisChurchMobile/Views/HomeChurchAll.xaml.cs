@@ -19,6 +19,6 @@ namespace DunamisChurchMobile.Views
             InitializeComponent();
             BindingContext = new HomeChurchViewModel("");
 
-        }
+        }        
     }
 }

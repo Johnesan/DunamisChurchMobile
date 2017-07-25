@@ -5,26 +5,27 @@
             BackgroundImage="aboutBackground.png">
     <ScrollView>
         <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="100"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <StackLayout Margin="0" Grid.Row="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-            <Image Source="aboutPageLogo.png" HeightRequest="100" Margin="0,5,0,0" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand"/>
-        </StackLayout>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <StackLayout Margin="0" Grid.Row="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <Image Source="aboutPageLogo.png" HeightRequest="100" Margin="0,5,0,0" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand"/>
+            </StackLayout>
 
-        <StackLayout Grid.Row="1" VerticalOptions="StartAndExpand" Margin="10,2,10,0">
-            <ScrollView>
-                    <Label FontAttributes="Italic" Font="18" TextColor="White" Text="Dunamis International Gospel Centre (DIGC), is a powerfully anointed church, headquartered at Abuja, Nigeria, with Dr Paul and Dr Becky Enenche, as the Senior Pastors. It is a power-packed arena where God's Presence, Principles and Power are at work for the salvation, healing and restoration of human destinies and dignities. Dunamis International Gospel Centre (DIGC), is also a revival and end time fire distribution centre, where ministers from around the globe gather to experience the deep, palpable and feelable Presence of God; connect with God's heartbeat for the present, receive current instructions for the end time assignment and get imparted to take charge of their territories for God."/>
-            </ScrollView>
-        </StackLayout>
+            <StackLayout Grid.Row="1" VerticalOptions="StartAndExpand" Margin="10,2,10,0">
+                <Label FontAttributes="Italic" Font="18" TextColor="White" Text="Dunamis International Gospel Centre (DIGC), is a powerfully anointed church, headquartered at Abuja, Nigeria, with Dr Paul and Dr Becky Enenche, as the Senior Pastors. It is a power-packed arena where God's Presence, Principles and Power are at work for the salvation, healing and restoration of human destinies and dignities."/>
+                <Label Text="Our Service Times are as follows:" Font="18" TextColor="White"/>
+                <Label Text="Tuesday(9:30am) : Healing And Deliverance Service" Font="18" TextColor="White"/>
+                <Label Text="Wednesday(4:45pm and 6:30pm) : 2 Power Communion Services" Font="18" TextColor="White"/>
+                <Label Text="Sunday(6.00AM, 7.20AM, 8.40AM, 10.00AM, 11.20AM, 12.40AM) : 6 Mega Services" Font="18" TextColor="White"/>
+            </StackLayout>
 
-        <StackLayout Grid.Row="2" Spacing="0" VerticalOptions="End">
+            <StackLayout Grid.Row="2" Spacing="0" VerticalOptions="End">
                 <Button Text="About Dr. Paul Enenche" HorizontalOptions="FillAndExpand" Clicked="PapaButtonClicked" BackgroundColor="#FFF176" Margin="8,0,8,0"/>
                 <Button Text="About Dr. Becky Enenche" HorizontalOptions="FillAndExpand"  Clicked="MamaButtonClicked" BackgroundColor="#FFEE58" Margin="8,0,8,0"/>
-        </StackLayout>
-    </Grid>
+            </StackLayout>
+        </Grid>
     </ScrollView>
-
 </ContentPage>

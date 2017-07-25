@@ -2,9 +2,9 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DunamisChurchMobile.Views.EventSingle"
-             Title="{Binding name}"
+             Title="View Event"
              BackgroundColor="#E8EAF6">
-    <ScrollView>
+    <!--<ScrollView>
     <Frame HasShadow="True" Padding="9" Margin="9">
         <StackLayout  HorizontalOptions="Center">
             <StackLayout Orientation="Horizontal">
@@ -23,5 +23,35 @@
             <Label Text="{Binding description}" FontAttributes="Italic" Font="18" TextColor="Black"/>
         </StackLayout>
     </Frame>
+    </ScrollView>-->
+    <ScrollView>
+        <Frame Margin="8" HasShadow="True">
+            <StackLayout>
+                <Label Text="{Binding name}" Font="24" TextColor="Black" HorizontalTextAlignment="Center" Margin="0,0,0,40"/>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Start Date :" Margin="0,0,5,0" Font="19"/>
+                    <Label Text="{Binding startDate, StringFormat='{0:dd/MM/yyyy}'}" Font="19" TextColor="#E65100"/>
+                </StackLayout>
+                <BoxView  HeightRequest="1" BackgroundColor="Black" HorizontalOptions="FillAndExpand" />
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Time :" Margin="0,0,5,0" Font="19" />
+                    <Label Text="{Binding eventTime, StringFormat='{0:HH:mm}'}" Font="19" TextColor="#E65100"/>
+                </StackLayout>
+                <BoxView  HeightRequest="1" BackgroundColor="Black" HorizontalOptions="FillAndExpand" />
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Venue :" Margin="0,0,5,0" Font="19"/>
+                    <Label Text="{Binding venue}" Font="19" TextColor="#E65100"/>
+                </StackLayout>
+                <BoxView  HeightRequest="1" BackgroundColor="Black" HorizontalOptions="FillAndExpand" Margin="0,0,0,15"/>
+
+
+                <Frame HasShadow="True" BackgroundColor="#f2f2f2" VerticalOptions="FillAndExpand">
+                    <StackLayout>
+                        <Label Text="Details" HorizontalOptions="Center" Font="19"/>
+                        <Label Text="{Binding description}" Margin="0" FontAttributes="Italic" HorizontalOptions="FillAndExpand" Font="17" TextColor="#E65100"/>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+        </Frame>
     </ScrollView>
 </ContentPage>

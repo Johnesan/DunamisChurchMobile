@@ -1,4 +1,6 @@
 ﻿using DunamisChurchMobile.Models;
+using DunamisChurchMobile.Services;
+using Plugin.Connectivity;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -12,8 +14,8 @@ namespace DunamisChurchMobile.ViewModels
 {
     class SeedOfDestinyReadViewModel : INotifyPropertyChanged
     {
-        private ObservableCollection<SeedOfDestinyRead> _seedOfDestinies;
-        public ObservableCollection<SeedOfDestinyRead> SeedOfDestinies
+        private ObservableCollection<SeedOfDestiny> _seedOfDestinies;
+        public ObservableCollection<SeedOfDestiny> SeedOfDestinies
         {
             get
             {  return _seedOfDestinies; }
@@ -24,13 +26,49 @@ namespace DunamisChurchMobile.ViewModels
             }
         }
 
+        private bool _isBusy;
+        public bool IsBusy
+        {
+            get { return _isBusy; }
+            set
+            {
+                _isBusy = value;
+                OnPropertyChanged();
+            }
+        }
+
         public SeedOfDestinyReadViewModel()
         {
-            SeedOfDestinies = new ObservableCollection<SeedOfDestinyRead>
+            InitAsync();
+        }
+        public async Task InitAsync()
+        {
+            try
             {
-                new SeedOfDestinyRead{ Title="I am Rich", Date=DateTime.Parse("12/03/2017"), Scripture="Revelation 3:17 - You say, ‘I am rich; I have acquired wealth and do not need a thing.’ But you do not realize that you are wretched, pitiful, poor, blind and naked. "},
-                new SeedOfDestinyRead{ Title="The Lord Sends Poverty and Riches", Date=DateTime.Parse("11/03/2017"), Scripture="1 Samuel 2:6-7 - The LORD brings death and makes alive; he brings down to the grave and raises up. The LORD sends poverty and wealth; he humbles and he exalts."}
-            };
+                IsBusy = true;
+                SeedOfDestinies = new ObservableCollection<SeedOfDestiny>(App.database.GetAllSeedOfDestinies());
+                if (!CrossConnectivity.Current.IsConnected)
+                {
+                    IsBusy = false;
+                    return;
+                }
+                ChurchPlusApis service = new ChurchPlusApis();
+                var UpdatedSeedOfDestinies = await service.GetSeedOfDestinies();
+                App.database.AddUpdatedSeedOfDestinies(UpdatedSeedOfDestinies);
+                SeedOfDestinies = new ObservableCollection<SeedOfDestiny>(App.database.GetAllSeedOfDestinies());
+                foreach (SeedOfDestiny seedOfDestiny in UpdatedSeedOfDestinies)
+                {
+                    if (seedOfDestiny.created > DateTime.Now)
+                    {
+                        SeedOfDestinies.Remove(seedOfDestiny);
+                    }
+                }               
+            }
+            catch(Exception e)
+            {
+
+            }
+            IsBusy = false;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

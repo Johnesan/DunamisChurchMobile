@@ -13,13 +13,13 @@ namespace DunamisChurchMobile.Views
     public partial class AboutUs : ContentPage
     {
         public AboutUs()
-        {
+        {  
             InitializeComponent();
         }
 
         private async void PapaButtonClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new Papa());
+            await Navigation.PushAsync(new Papa(), true);
         }
 
         private async void MamaButtonClicked(object sender, EventArgs e)

@@ -1,5 +1,7 @@
-﻿using DunamisChurchMobile.Models;
+﻿using DunamisChurchMobile.Databases;
+using DunamisChurchMobile.Models;
 using DunamisChurchMobile.Services;
+using Plugin.Connectivity;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
@@ -33,13 +35,21 @@ namespace DunamisChurchMobile.ViewModels
 
         public EventsViewModel()
         {
+            IsBusy = true;
+            Events = new ObservableCollection<Event>(App.database.GetAllEvents()); 
             InitDataAsync();
         }
         public async Task InitDataAsync()
-        {
-            IsBusy = true;
-            ChurchPlusApis service = new ChurchPlusApis();            
-            Events = new ObservableCollection<Event>(await service.GetAllEvents());
+        {           
+            if (!CrossConnectivity.Current.IsConnected)
+            {
+                IsBusy = false; 
+                return;
+            }
+            ChurchPlusApis service = new ChurchPlusApis();
+            var UpdatedEvents = await service.GetAllEvents();
+            App.database.AddUpdatedEvents(UpdatedEvents);
+            Events = new ObservableCollection<Event>(App.database.GetAllEvents());
             IsBusy = false;
         }
 

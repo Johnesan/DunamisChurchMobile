@@ -15,7 +15,7 @@ namespace DunamisChurchMobile.Views
         public Offering()
         {
             InitializeComponent();
-            webView.Source = "http://churchplus.co";
+            webView.Source = "http://my.churchplus.co/OnlineGiving/ChurchPlusPay?hostName=cwwgm.org";
             //BindingContext = new ContentPageViewModel();
         }
 

@@ -68,7 +68,7 @@ namespace DunamisChurchMobile.ViewModels
                 "&channelId="
           + channelID
           + "&key=AIzaSyADgBl2wj41IAAF19EgiYv3TeOMUfrQ_VA";
-
+            YoutubeItems = new ObservableCollection<YoutubeItem>();
             InitDataAsync();
 
         }
@@ -108,7 +108,7 @@ namespace DunamisChurchMobile.ViewModels
                     videoIds.Add(item.Value<JObject>("id")?.Value<string>("videoId"));
                 }
 
-                YoutubeItems = await GetVideosDetailsAsync(videoIds);
+                 await GetVideosDetailsAsync(videoIds);
 
                 NextPageToken = response.Value<string>("nextPageToken");
 

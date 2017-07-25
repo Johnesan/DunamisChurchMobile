@@ -21,6 +21,11 @@ namespace DunamisChurchMobile.Views
         public async void SearchHomeChurches()
         {
             var searchString = entry.Text;
+            if (string.IsNullOrEmpty(searchString))
+            {
+               await DisplayAlert("No Text Entered!", "Please enter a home fellowship name or area.", "OK");
+                return;
+            }
             await Navigation.PushAsync(new HomeChurchAll
             {
                 BindingContext = new HomeChurchViewModel(searchString)
@@ -34,7 +39,6 @@ namespace DunamisChurchMobile.Views
             {
                 BindingContext = new HomeChurchViewModel(searchString)
             });
-
         }
 
 

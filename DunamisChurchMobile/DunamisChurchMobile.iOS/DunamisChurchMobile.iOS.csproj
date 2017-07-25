@@ -88,6 +88,7 @@
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="FileHelper.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <None Include="app.config" />
@@ -111,11 +112,32 @@
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Newtonsoft.Json.10.0.2\lib\netstandard1.3\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="Plugin.Connectivity, Version=3.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xam.Plugin.Connectivity.3.0.2-beta117\lib\Xamarin.iOS10\Plugin.Connectivity.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Connectivity.Abstractions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xam.Plugin.Connectivity.3.0.2-beta117\lib\Xamarin.iOS10\Plugin.Connectivity.Abstractions.dll</HintPath>
+    </Reference>
     <Reference Include="Plugin.Share, Version=6.1.0.19, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Plugin.Share.6.1.0.19-beta\lib\Xamarin.iOS10\Plugin.Share.dll</HintPath>
     </Reference>
     <Reference Include="Plugin.Share.Abstractions, Version=6.1.0.19, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Plugin.Share.6.1.0.19-beta\lib\Xamarin.iOS10\Plugin.Share.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLite-net, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\sqlite-net-pcl.1.3.3\lib\netstandard1.1\SQLite-net.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.batteries_green, Version=1.0.0.0, Culture=neutral, PublicKeyToken=a84b7dcfb1391f7f, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SQLitePCLRaw.bundle_green.1.1.5\lib\Xamarin.iOS10\SQLitePCLRaw.batteries_green.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.batteries_v2, Version=1.0.0.0, Culture=neutral, PublicKeyToken=8226ea5df37bcae9, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SQLitePCLRaw.bundle_green.1.1.5\lib\Xamarin.iOS10\SQLitePCLRaw.batteries_v2.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1488e028ca7ab535, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SQLitePCLRaw.core.1.1.5\lib\Xamarin.iOS10\SQLitePCLRaw.core.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.provider.sqlite3, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62684c7b4f184e3f, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SQLitePCLRaw.provider.sqlite3.ios_unified.1.1.5\lib\Xamarin.iOS10\SQLitePCLRaw.provider.sqlite3.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.IO.Compression" />
@@ -146,64 +168,156 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\audio.png" />
+    <AndroidResource Include="Resources\audio.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\audioandvideo.png" />
+    <AndroidResource Include="Resources\audioandvideo.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\bg.jpg" />
+    <AndroidResource Include="Resources\bg.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\dunamistv.jpg" />
+    <AndroidResource Include="Resources\dunamistv.jpg" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\events.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\homechurch.png" />
+    <AndroidResource Include="Resources\homechurch.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\icon.png" />
+    <AndroidResource Include="Resources\icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\menu.png" />
+    <AndroidResource Include="Resources\menu.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\onlinegiving.png" />
+    <AndroidResource Include="Resources\onlinegiving.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\prayer.png" />
+    <AndroidResource Include="Resources\prayer.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\testimony.jpg" />
+    <AndroidResource Include="Resources\testimony.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\aboutIcon.png" />
+    <AndroidResource Include="Resources\aboutIcon.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\dunamisTVIcon.png" />
+    <AndroidResource Include="Resources\dunamisTVIcon.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\eventsIcon.png" />
+    <AndroidResource Include="Resources\eventsIcon.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\homeIcon.png" />
+    <AndroidResource Include="Resources\homeIcon.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\messagesIcon.png" />
+    <AndroidResource Include="Resources\messagesIcon.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\offeringIcon.png" />
+    <AndroidResource Include="Resources\offeringIcon.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\seedofdestinyIcon.png" />
+    <AndroidResource Include="Resources\seedofdestinyIcon.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\twitterIcon.png" />
+    <AndroidResource Include="Resources\twitterIcon.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\angleBracketIcon.png" />
+    <AndroidResource Include="Resources\angleBracketIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\aboutBackground.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\aboutPageLogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\aboutUsBackground.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\addTestimony.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\calendar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\calendarEventSingle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\DunamisLogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\events.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\facebookCircle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\homeChurchPage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\instagramCircle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\logoCircle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\mama1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\mama2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\mama3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\masterPageLogo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\messages.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\papa1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\papa2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\papa3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\papa4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\SeedOfDestinyHomeIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\SeedOfDestinyReadIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\socialMediaBackground.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\SocialMediaBackgroundd.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\splash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\splash_screen.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\testimonies.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\twitterCircle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\youtubeCircle.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Forms.2.3.4.247\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.2.3.4.247\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets')" />

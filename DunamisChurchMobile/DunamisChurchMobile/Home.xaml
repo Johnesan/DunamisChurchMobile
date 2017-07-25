@@ -24,6 +24,7 @@
             <ColumnDefinition />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
+        
         <StackLayout Orientation="Horizontal" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4">
             <Image Opacity="0.9" Aspect="AspectFill" VerticalOptions="FillAndExpand" 
 			HorizontalOptions="FillAndExpand" Source="DunamisTV.jpg">
@@ -32,6 +33,7 @@
                 </Image.GestureRecognizers>
             </Image>
         </StackLayout>
+        
         <StackLayout Orientation="Horizontal" Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="3">
             <Image Aspect="AspectFill" VerticalOptions="FillAndExpand" 
 			HorizontalOptions="FillAndExpand" Source="homechurch.jpg">
@@ -40,6 +42,7 @@
                 </Image.GestureRecognizers>
             </Image>
         </StackLayout>
+        
         <StackLayout Orientation="Horizontal" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3">
             <Image Aspect="AspectFill" VerticalOptions="FillAndExpand" 
 				HorizontalOptions="FillAndExpand" Source="events.jpg">
@@ -48,6 +51,7 @@
                 </Image.GestureRecognizers>
             </Image>
         </StackLayout>
+        
         <StackLayout Orientation="Horizontal" Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="4">
             <Image Aspect="AspectFill" VerticalOptions="FillAndExpand" 
 			HorizontalOptions="FillAndExpand" Source="audio.png">
@@ -55,8 +59,8 @@
                     <TapGestureRecognizer Command="{Binding MessageLibraryCommand}" />
                 </Image.GestureRecognizers>
             </Image>
-
         </StackLayout>
+        
         <StackLayout Orientation="Horizontal" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3">
             <Image Aspect="AspectFill" VerticalOptions="FillAndExpand" 
 			HorizontalOptions="FillAndExpand" Source="onlinegiving.png">
@@ -65,17 +69,26 @@
                 </Image.GestureRecognizers>
             </Image>
         </StackLayout>
-        <StackLayout Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="4" Grid.RowSpan="2">
+        <!--<StackLayout Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="4" Grid.RowSpan="2">
             <ScrollView HorizontalOptions="Start">
                 <StackLayout>
-                    <Label FontAttributes="Bold" FontSize="18" Text="Seed Of Destiny" TextColor="White" VerticalOptions="Center" HorizontalOptions="Center" />
-                    <Label FontAttributes="Italic" FontSize="12" Text="Today: April 1st, 2017" TextColor="White" VerticalOptions="Start" HorizontalOptions="End" />
-                    <Label FontSize="12" TextColor="White" Text="Ok, then try to add another transparent view to the beginning of the stack and set it's option to start and expand, then remove horizontal option for image. This should do the trick. You may also try using Grid with */Auto sized columns for stuff like this. Everybody moves from simple layouts to grid eventually, especially now, after they added margin property." />
+                    <Label FontAttributes="Bold" FontSize="17" Text="Seed Of Destiny" TextColor="White" VerticalOptions="Center" HorizontalOptions="Center" />
+                    <Label FontAttributes="Italic" FontSize="10" Text="Today: July 5th, 2017" TextColor="White" VerticalOptions="Start" HorizontalOptions="End" />
+                    <Label FontSize="11" TextColor="White" Text="Seed Of Destiny is your spiritual companion all day long, the inspiration you will encounter in this devotional will illuminate your heart and life with the revelative power of God's word and put you on the path of freedom and success" />
                     <Button BackgroundColor="Transparent" TextColor="White" Text="Read More.." Command="{Binding SeedOfDestinyCommand}">
                     </Button>
                 </StackLayout>
             </ScrollView>
+        </StackLayout>-->
+        <StackLayout Orientation="Horizontal" Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="4">
+            <Image Aspect="AspectFill" VerticalOptions="FillAndExpand" 
+			HorizontalOptions="FillAndExpand" Source="SeedOfDestinyHomeIcon.png">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding SeedOfDestinyCommand}" />
+                </Image.GestureRecognizers>
+            </Image>
         </StackLayout>
+        
         <StackLayout Orientation="Horizontal" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3">
             <Image Aspect="AspectFill" VerticalOptions="FillAndExpand" 
 			HorizontalOptions="FillAndExpand" Source="testimonies.png">
@@ -83,7 +96,6 @@
                     <TapGestureRecognizer Command="{Binding TestimoniesCommand}" />
                 </Image.GestureRecognizers>
             </Image>
-
         </StackLayout>
     </Grid>
 </ContentPage>

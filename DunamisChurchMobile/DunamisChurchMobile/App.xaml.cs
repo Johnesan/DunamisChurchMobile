@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DunamisChurchMobile.Databases;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,11 +10,19 @@ namespace DunamisChurchMobile
 {
     public partial class App : Application
     {
-        public string TenantID
-        { get
-
-            { return ""; }
+        private static DunamisDB _database;
+        public static DunamisDB database
+        {
+            get
+            {
+                if (_database == null)
+                {
+                    _database = new DunamisDB(DependencyService.Get<IFileHelper>().GetLocalFilePath("dunamisdb.db3"));
+                }
+                return _database;
+            }
         }
+               
         public App()
         {
             InitializeComponent();
@@ -21,7 +30,7 @@ namespace DunamisChurchMobile
             //MainPage = new DunamisChurchMobile.MainPage();
             MainPage = new RootPage();
         }
-
+        
         protected override void OnStart()
         {
             // Handle when your app starts
